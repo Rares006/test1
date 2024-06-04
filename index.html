@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Image Grid</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: linear-gradient(to bottom right, #bfb1b2, #55070e);
+    }
+
+    .header {
+      text-align: center;
+      padding: 32px;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    .column {
+      flex: 50%;
+      max-width: 50%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    .modal-content, #caption {
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+
+    @keyframes zoom {
+      from {transform:scale(0)}
+      to {transform:scale(1)}
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width: 700px){
+      .modal-content {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Responsive Image Grid</h1>
+  <p>Resize the browser window to see the responsive effect.</p>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="graduare/captured_media_1717484377855.png" alt="Image 1">
+    <img src="graduate/captured_media_1717484414583.png" alt="Image 3">
+    <img src="graduate/captured_media_1717484434168.png" alt="Image 4">
+    <img src="graduate/captured_media_1717484437082.png" alt="Image 5">
+    <img src="graduate/captured_media_1717484471235.png" alt="Image 6">
+    <img src="graduate/captured_media_1717484472339.png" alt="Image 7">
+    <img src="graduate/captured_media_1717484472817.png" alt="Image 8">
+    <img src="graduate/captured_media_1717484472972.png" alt="Image 9">
+    <img src="graduate/captured_media_1717484487301.png" alt="Image 10">
+    <img src="graduate/captured_media_1717484523399.png" alt="Image 11">
+    <img src="graduate/captured_media_1717484527153.png" alt="Image 12">
+    <img src="graduate/captured_media_1717484587011.png" alt="Image 13">
+    <img src="graduate/captured_media_1717484843213.png" alt="Image 14">
+    <img src="graduate/captured_media_1717484844716.png" alt="Image 15">
+    <img src="graduate/captured_media_1717484844856.png" alt="Image 16">
+    <img src="graduate/captured_media_1717485117074.png" alt="Image 17">
+    <img src="graduate/captured_media_1717485306252.png" alt="Image 18">
+    <img src="graduate/captured_media_1717486047372.png" alt="Image 19">
+    <img src="graduate/captured_media_1717486048615.png" alt="Image 20">
+    <img src="graduate/captured_media_1717487535490.png" alt="Image 21">
+    <img src="graduate/captured_media_1717497986093.png" alt="Image 22">
+    <img src="graduate/captured_media_1717511752180.png" alt="Image 23">
+    <img src="graduate/captured_media_1717511820836.png" alt="Image 24">
+    <img src="graduate/captured_media_1717511824625.png" alt="Image 25">
+  </div>
+  <div class="column">
+    <img src="graduate/captured_media_1717511824668.png" alt="Image 26">
+    <img src="graduate/captured_media_1717511826946.png" alt="Image 27">
+    <img src="graduate/captured_media_1717511849502.png" alt="Image 28">
+    <img src="graduate/captured_media_1717512015885.mp4" alt="Image 29">
+    <img src="graduate/captured_media_1717512023312.mp4" alt="Image 30">
+    <img src="graduate/captured_media_1717512282307.png" alt="Image 31">
+    <img src="graduate/captured_media_1717513152042.png" alt="Image 32">
+    <img src="graduate/captured_media_1717513154236.png" alt="Image 33">
+    <img src="graduate/captured_media_1717513155734.png" alt="Image 34">
+    <img src="graduate/captured_media_1717513156422.png" alt="Image 35">
+    <img src="graduate/captured_media_1717513156989.png" alt="Image 36">
+    <img src="graduate/captured_media_1717513158652.png" alt="Image 37">
+    <img src="graduate/captured_media_1717513159909.png" alt="Image 38">
+    <img src="graduate/captured_media_1717513161090.png" alt="Image 39">
+    <img src="graduate/captured_media_1717514010992.png" alt="Image 40">
+    <img src="graduate/captured_media_1717514033277.png" alt="Image 41">
+    <img src="graduate/captured_media_1717514036370.png" alt="Image 42">
+    <img src="graduate/captured_media_1717514137846.png" alt="Image 43">
+    <img src="graduate/captured_media_1717514307201.png" alt="Image 44">
+    <img src="graduate/captured_media_1717514447117.mp4" alt="Image 45">
+    <img src="graduate/captured_media_1717514450427.mp4" alt="Image 46">
+    <img src="graduate/captured_media_1717514499611.png" alt="Image 47">
+    <img src="graduate/captured_media_1717514531740.png" alt="Image 48">
+    <img src="graduate/captured_media_1717515461220.png" alt="Image 49">
+    <img src="graduate/captured_media_1717515463015.png" alt="Image 50">
+    <img src="graduate/captured_media_1717517287499.png" alt="Image 51">
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the images and insert them inside the modal - use its "alt" text as a caption
+  var images = document.querySelectorAll('.column img');
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+
+  images.forEach(function(img) {
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+  });
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+</script>
+
+</body>
+</html>
