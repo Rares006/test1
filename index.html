@@ -11,7 +11,7 @@
 
     body {
       margin: 0;
-      font-family: Arial;
+      font-family: 'Times New Roman', Times, serif;
       background: linear-gradient(to bottom right, #bfb1b2, #55070e);
     }
 
@@ -99,6 +99,36 @@
       cursor: pointer;
     }
 
+    /* Butonul pentru navigarea imaginilor */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .prev {
+      left: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
     @media only screen and (max-width: 700px){
       .modal-content {
         width: 100%;
@@ -110,8 +140,7 @@
 
 <!-- Header -->
 <div class="header">
-  <h1>Responsive Media Grid</h1>
-  <p>Resize the browser window to see the responsive effect.</p>
+  <h1>12A</h1>
 </div>
 
 <!-- Photo Grid -->
@@ -164,26 +193,27 @@
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
-  <span class="close">&times;</span>
+  <span class="close" onclick="closeModal()">&times;</span>
   <img class="modal-content" id="img01">
   <video class="modal-content" id="vid01" controls></video>
   <div id="caption"></div>
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 
 <script>
-  // Get the modal
   var modal = document.getElementById("myModal");
-
-  // Get the images and videos and insert them inside the modal - use its "alt" text as a caption
   var images = document.querySelectorAll(".column img");
   var videos = document.querySelectorAll(".column video");
   var modalImg = document.getElementById("img01");
   var modalVid = document.getElementById("vid01");
   var captionText = document.getElementById("caption");
+  var currentIndex = 0;
 
-  images.forEach(function(img) {
+  images.forEach(function(img, index) {
     img.onclick = function() {
       modal.style.display = "block";
+      currentIndex = index;
       modalImg.src = this.src;
       modalImg.style.display = "block";
       modalVid.style.display = "none";
@@ -191,9 +221,10 @@
     }
   });
 
-  videos.forEach(function(video) {
+  videos.forEach(function(video, index) {
     video.onclick = function() {
       modal.style.display = "block";
+      currentIndex = index;
       modalVid.src = this.src;
       modalVid.style.display = "block";
       modalImg.style.display = "none";
@@ -201,16 +232,34 @@
     }
   });
 
-  // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
 
-  // When the user clicks on <span> (x), close the modal
   span.onclick = function() { 
     modal.style.display = "none";
     modalImg.src = "";
     modalVid.src = "";
   }
+
+  function closeModal() {
+    modal.style.display = "none";
+    modalImg.src = "";
+    modalVid.src = "";
+  }
+
+  function plusSlides(n) {
+    currentIndex += n;
+    if (currentIndex >= images.length) {
+      currentIndex = 0;
+    } else if (currentIndex < 0) {
+      currentIndex = images.length - 1;
+    }
+    modalImg.src = images[currentIndex].src;
+    captionText.innerHTML = images[currentIndex].alt;
+  }
 </script>
 
+<footer>
+  <p>Site creat de 11A.</p>
+</footer>  
 </body>
 </html>
